@@ -33,7 +33,7 @@ while count < post_limit:
 
         text += ' (dinleme sayısı: {})'.format(count)
 
-        #client.create_tweet(text=text)
+        client.create_tweet(text=text)
         log, printed = logger.log(log, text)
         print(printed)
 
