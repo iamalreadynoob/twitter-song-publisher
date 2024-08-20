@@ -1,0 +1,8 @@
+{
+  "spotify_client_id": "id",
+  "spotify_client_secret": "secret",
+  "twitter_consumer_key": "key",
+  "twitter_consumer_secret": "secret",
+  "twitter_access_token": "token",
+  "twitter_access_token_secret": "token secret"
+}
