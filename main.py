@@ -1,4 +1,5 @@
 import time
+from datetime import datetime
 import init
 import logger
 import pandas as pd
@@ -9,6 +10,7 @@ repeat = 300
 df = pd.read_csv('assets/records.csv')
 log = pd.read_csv('assets/log.csv')
 
+started = datetime.now()
 sp = init.get_spotify()
 client = init.get_twitter()
 count = logger.count(log)
@@ -37,9 +39,17 @@ while count < post_limit:
         log, printed = logger.log(log, text)
         print(printed)
 
+        df.to_csv('assets/records.csv', index=False)
+        log.to_csv('assets/log.csv', index=False)
+
         count += 1
         time.sleep(repeat)
 
+    else:
+        time.sleep(180)
 
-df.to_csv('assets/records.csv', index=False)
-log.to_csv('assets/log.csv', index=False)
+    now = datetime.now()
+    gap = now - started
+
+    if gap.total_seconds() / 60 >= 55:
+        sp = init.get_spotify()
