@@ -53,3 +53,4 @@ while count < post_limit:
 
     if gap.total_seconds() / 60 >= 55:
         sp = init.get_spotify()
+        started = now
